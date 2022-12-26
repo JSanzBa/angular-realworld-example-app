@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 import { onHomePage } from "../support/pageObjects/HomePage"
-import { onFormArticlePage } from "../support/pageObjects/FormActiclePage"
+import { onFormArticlePage } from "../support/pageObjects/FormArticlePage"
 
 import cypressConfig from "../../cypress.config"
 
@@ -54,10 +54,11 @@ Cypress.Commands.add('loginToApp', (user,pass) => {
 
 Cypress.Commands.add('newArticle', (title, description, body, tags) => {
 
+
     onHomePage.NavBarNewArticle().click()
-    onFormArticlePage.articleTitle().type(title)
-    onFormArticlePage.articleDescription().type(description)
-    onFormArticlePage.articleBody().type(body)
+    onFormArticlePage.articleTitle().type(onFormArticlePage.randomize(title))
+    onFormArticlePage.articleDescription().type(onFormArticlePage.randomize(description))
+    onFormArticlePage.articleBody().type(onFormArticlePage.randomize(body))
     onFormArticlePage.artilceTags().type(tags)
     onFormArticlePage.articleFormButton().click()
 

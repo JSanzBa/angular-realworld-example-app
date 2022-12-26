@@ -1,4 +1,14 @@
+
+
+
 export class FormArticlePage {
+
+
+    randomize(str) {
+        const numAleatorio = Math.random() * 1000 + 1;
+        const numAleatorioStr = numAleatorio.toFixed(8);
+        return str +' '+ numAleatorioStr;
+    }
 
     articleTitle() {
         return cy.get('[formcontrolname="title"]')
